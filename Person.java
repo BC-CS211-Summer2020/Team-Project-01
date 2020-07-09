@@ -13,7 +13,7 @@ public class Person{
    
    /*
    * Returns an ArrayList that contains every immediate family 
-   * found in list2 
+   * found in the second list
    */
    public ArrayList<ArrayList<String>> getListOfLists() {
       ;
