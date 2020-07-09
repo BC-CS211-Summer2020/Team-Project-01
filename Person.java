@@ -12,39 +12,39 @@ public class Person{
    }
    
    /*
-   * Returns an ArrayList that contains every immediate family 
-   * found in the second list
+   * Finds the first list values and store them into an ArrayList field
    */
-   public ArrayList<ArrayList<String>> getListOfLists() {
+   public void firstList() {
+      ;
+   }
+   
+   /*
+   * Finds the second list values and store them into an ArrayList field
+   */
+   public void secondList() {
+      ;
+   }
+   
+   /*
+   * Splits up the second list into lists of three values each and then 
+   * append those to another ArrayList
+   */
+   public void listOfLists() {
       ;
    } 
    
    /*
-   * Returns the first list from the data file
+   * Finds the parents 
    */
-   public ArrayList<String> getFirstList() {
-      ;
-   }
-   
-   /*
-   * Returns the second list from the data file
-   */
-   public ArrayList<String> getSecondList() {
-      ;
-   }
-   
-   /*
-   * Returns the parents of the Person
-   */
-   public ArrayList<String> getParents() {
+   public void parents() {
       ;
    }
    
    
    /*
-   * Returns the Children of the Person
+   * Finds the children
    */   
-   public ArrayList<String> getChildren() {
+   public void children() {
       ;
    }
 }
