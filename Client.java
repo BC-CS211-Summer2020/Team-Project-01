@@ -25,7 +25,7 @@ public class Client{ //MP (Melina can write the Client class code)
    
       System.out.println("What's up world?");
       
-      // Scanner object needs to be created to get user input
+      // Scanner object needs to be created to get user input - remember to address invalid input (error message)
       
       // Create instance of Person object
       
