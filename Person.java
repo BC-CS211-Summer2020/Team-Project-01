@@ -40,7 +40,7 @@ public class Person{
    * Finds the first and second list values and append them to their 
    * respective ArrayList fields
    */
-   public void bothLists() {
+   public void seperateLists() {
       ;
    }
    
@@ -48,7 +48,7 @@ public class Person{
    * Splits up the second list into lists of three values each and then 
    * append those to another ArrayList
    */
-   public void listOfLists() {
+   public void createListOfFamilies() {
       ;
    } 
    
@@ -59,11 +59,30 @@ public class Person{
       ;
    }
    
-   
    /*
    * Finds the children
    */   
    public void children() {
       ;
+   }
+   
+   /*
+   * Calls the methods that parses the data file 
+   * and updates the Person fields
+   */
+   public void getFamily() {
+      seperateLists();
+      createListOfFamilies();
+      parents();
+      children();
+   }
+   
+   /*
+   * Prints out the family of the Person 
+   */
+   public String toString() {
+      // Filler code to allow program to compile
+      String childrenString = "";
+      return childrenString;
    }
 }
