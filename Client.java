@@ -20,7 +20,7 @@
  * Final Submission:  07-14-20
 */
 
-public class Client{
+public class Client{ //MP (Melina can write the Client class code)
    public static void main(String[] args) {
    
       System.out.println("What's up world?");
