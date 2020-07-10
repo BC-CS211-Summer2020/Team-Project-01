@@ -18,7 +18,7 @@
  * initialize the name and parent/child relationships of 
  * each Person object. An overall list of 'Persons' is
  * stored as an ArrayList. Person Class is called by
- * Main class.
+ * Client class.
  *
  * Final Submission:  07-14-20
 */
