@@ -23,17 +23,28 @@
  * Final Submission:  07-14-20
 */
 
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
 public class Person{
 
-   /*
-   * Fields
-   */
+   
+   //Fields
+   private String name;
+   private ArrayList<String> firstList;
+   private ArrayList<String> secondList;
+   private ArrayList<ArrayList<String>> familyList;
+   private ArrayList<String> parents;
+   private ArrayList<String> children;
    
    // Constructor
-   public Person() {
-      ;
+   public Person(String name) {
+      this.name = name;
+      firstList = new ArrayList<>();
+      secondList = new ArrayList<>();
+      familyList = new ArrayList<>();
+      parents = new ArrayList<>();
+      children = new ArrayList<>();
    }
    
    /*
