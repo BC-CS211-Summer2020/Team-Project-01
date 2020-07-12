@@ -19,14 +19,23 @@
  *
  * Final Submission:  07-14-20
 */
+import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.File;
 
-public class Client{ //MP (Melina can write the Client class code)
-   public static void main(String[] args) {
+public class Client{ //MP (Melina will write the Client class code)
    
-      System.out.println("What's up world?");
+   public static void main(String[] args) throws FileNotFoundException {
+   
+      // System.out.println("What's up world?");
       
-      // Scanner object needs to be created to get user input - remember to address invalid input (error message)
+      // Create scanner objects - remember to address invalid input (error message)
+	   Scanner tudorFamily = new Scanner(new File("tudor.dat")); // Scanner that reads the tudor.dat file with valid names
+      Scanner console = new Scanner(System.in); // Scanner that reads user's input
       
+      System.out.println("Person's name?");
+      String name = console.next();
+          
       // Create instance of Person object
       
       // Print Person object's fields in accordance to project specs
