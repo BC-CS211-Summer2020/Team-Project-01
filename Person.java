@@ -51,6 +51,12 @@ public class Person{
    * Finds the first and second list values and append them to their 
    * respective ArrayList fields
    */
+   /*
+   * Detailed explanation:
+   * This method adds all the String elements into firstList and secondList.
+   * A Scanner will need to be used to grab the Strings from the .dat file.
+   * The 2 lists are seperated by "END" in the .dat file.
+   */
    public void seperateLists() {
       ;
    }
@@ -59,12 +65,27 @@ public class Person{
    * Splits up the second list into lists of three values each and then 
    * append those to another ArrayList
    */
+   /*
+   * Detailed explanation:
+   * This method adds all the String elements into the familyList field.
+   * In secondList, every three values represents the child, mother, and 
+   * father, repectively. You can only add ArrayList<String> objects to 
+   * the familyList field. Each of which should have only three elements.
+   */
    public void createListOfFamilies() {
       ;
    } 
    
    /*
    * Finds the parents 
+   */
+   /*
+   * Detailed explanation:
+   * This method should check every ArrayList<String> object in the 
+   * familyList field and find the parents of the Person object using
+   * the Person name field. Every familyList field will have exactly 
+   * three Strings, the child, mother, and father. The parents found 
+   * should be added to the parents ArrayList field.
    */
    public void parents() {
       ;
@@ -73,6 +94,14 @@ public class Person{
    /*
    * Finds the children
    */   
+   /*
+   * Detailed explanation:
+   * This method should check every ArrayList<String> object in the 
+   * familyList field and find the children of the Person object using
+   * the name field. Every familyList field will have exactly three 
+   * Strings, the child, mother, and father.The children found 
+   * should be added to the children ArrayList field.
+   */
    public void children() {
       ;
    }
@@ -82,7 +111,11 @@ public class Person{
    * and updates the Person fields
    */
    public void getFamily() {
-      seperateLists();
+      try{
+         seperateLists();
+      } catch(Exception e) {
+         e.printStackTrace();   
+      }
       createListOfFamilies();
       parents();
       children();
@@ -90,6 +123,13 @@ public class Person{
    
    /*
    * Prints out the family of the Person 
+   */
+   /*
+   * Detailed explanation: 
+   * This method should return a String that shows the Person 
+   * object's family. This method will be envoked after the Person 
+   * is instantiated in the Client class. The String should look 
+   * exactly like the example in the project exercise in the book.
    */
    public String toString() {
       // Filler code to allow program to compile
