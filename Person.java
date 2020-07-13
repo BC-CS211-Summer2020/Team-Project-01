@@ -110,7 +110,7 @@ public class Person{
    * Calls the methods that parses the data file 
    * and updates the Person fields
    */
-   public void getFamily() {
+   public void getFamily() {  //Alex Filbert
       try{
          seperateLists();
       } catch(Exception e) {
