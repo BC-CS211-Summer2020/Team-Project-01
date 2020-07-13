@@ -1,5 +1,3 @@
-package teamProject01;
-
 import java.util.*;
 import java.io.*;
 
@@ -7,7 +5,8 @@ public class Person{
 
    
    //Fields
-   
+
+
 	private String name;
 	private ArrayList<String> firstList = new ArrayList<>();
 	private ArrayList<String> secondList = new ArrayList<>();
@@ -36,6 +35,30 @@ public class Person{
 		   }
 	   }
 	   return result;
+
+   private String name;
+   private ArrayList<String> firstList;
+   private ArrayList<String> secondList;
+   private ArrayList<ArrayList<String>> familyList;
+   private ArrayList<String> parents;
+   private ArrayList<String> children;
+
+   // update by Zhexiu, to distingush father and mother
+   private Person father;
+   private Person mother;
+   private ArrayList<Person> childrenList;
+   
+   // Constructor
+   public Person(String name) {
+      this.name = name;
+      firstList = new ArrayList<>();
+      secondList = new ArrayList<>();
+      familyList = new ArrayList<>();
+      parents = new ArrayList<>();
+      children = new ArrayList<>();
+
+      childrenList = new ArrayList<Person>();
+
    }
    
    /*
@@ -66,7 +89,14 @@ public class Person{
                firstList.add(line.toLowerCase());
             }
          }
+
          while (file.hasNextLine() && !end2){
+
+         
+         isEnd = false;
+         
+         while (file.hasNextLine() && !isEnd){
+
             line = file.nextLine();
             if (line.equals("END")){
                end2 = true;
@@ -236,8 +266,49 @@ public class Person{
    /*
    public String toString() {
       // Filler code to allow program to compile
+
       String childrenString = "";
       return childrenString;
+
+      // String  = "family line";
+      // TODO: needs update to comply with output format (Maternal line/Parental line)
+      return "Name: " + name + " Mother: " + getMother().getName() + " Father: " + getFather().getName();
+   }
+
+   public String getName()
+   {
+      return name;
+   }
+
+   public void setFather(Person father)
+   {
+      this.father = father;
+   }
+
+   public void setMother(Person mother)
+   {
+      this.mother = mother;
+   }
+
+   public void addChild(Person child)
+   {
+      this.childrenList.add(child);
+   }
+
+   public Person getFather()
+   {
+      return father;
+   }
+
+   public Person getMother()
+   {
+      return mother;
+   }
+
+   public ArrayList<Person> getChildren()
+   {
+      return childrenList;
+
    }
    */
 }
