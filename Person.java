@@ -58,7 +58,36 @@ public class Person{
    * The 2 lists are seperated by "END" in the .dat file.
    */
    public void seperateLists() {  //Diane Lansinger
-      ; //FileIO
+          
+      String line;
+      boolean isEnd = false;
+      try{
+         Scanner file = new Scanner(new File("tudor.dat"));
+         //add each name before first "END" to firstList
+         //add each name before second "END" to secondList
+         while (file.hasNextLine() && !isEnd){
+            line = file.nextLine();
+            if (line.equals("END")){
+               isEnd = true;
+            }
+            else{
+               firstList.add(line);
+            }
+         }
+         while (file.hasNextLine() && !isEnd){
+            line = file.nextLine();
+            if (line.equals("END")){
+               isEnd = true;
+            }
+            else{
+               secondList.add(line);
+            }
+         }          
+      }
+      catch (FileNotFoundException e){
+         System.out.println("File tudor.dat not found.");
+         System.exit(0);
+      }
    }
    
    /*
