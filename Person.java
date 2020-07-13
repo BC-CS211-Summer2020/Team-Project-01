@@ -153,7 +153,7 @@ public class Person{
    * and updates the Person fields
    */
    public void getFamily() {  //Alex Filbert
-      seperateLists();
+      separateLists();
       createListOfFamilies();
       parents();
       children();
@@ -171,7 +171,7 @@ public class Person{
    */
    public String toString() {
       // Filler code to allow program to compile
-      String childrenString = "";
+      String childrenString = "family line";
       return childrenString;
    }
 }
