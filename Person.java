@@ -192,39 +192,4 @@ public class Person{
       // TODO: needs update to comply with output format (Maternal line/Parental line)
       return "Name: " + name + " Mother: " + getMother().getName() + " Father: " + getFather().getName();
    }
-
-   public String getName()
-   {
-      return name;
-   }
-
-   public void setFather(Person father)
-   {
-      this.father = father;
-   }
-
-   public void setMother(Person mother)
-   {
-      this.mother = mother;
-   }
-
-   public void addChild(Person child)
-   {
-      this.childrenList.add(child);
-   }
-
-   public Person getFather()
-   {
-      return father;
-   }
-
-   public Person getMother()
-   {
-      return mother;
-   }
-
-   public ArrayList<Person> getChildren()
-   {
-      return childrenList;
-   }
 }
