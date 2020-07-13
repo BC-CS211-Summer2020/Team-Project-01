@@ -101,8 +101,10 @@ public class Person{
    * father, repectively. You can only add ArrayList<String> objects to 
    * the familyList field. Each of which should have only three elements.
    */
-   public void createListOfFamilies() {
-      ;
+   public void createListOfFamilies() { //Angela Zou
+	   for (int i = 0; i < secondList.size(); i += 3) {
+		   familyList.add(new ArrayList<String>(Arrays.asList(secondList.get(i), secondList.get(i+1), secondList.get(i+2))));
+	   }
    } 
    
    /*
@@ -116,8 +118,17 @@ public class Person{
    * three Strings, the child, mother, and father. The parents found 
    * should be added to the parents ArrayList field.
    */
-   public void parents() {
-      ;
+   public void parents() { // Angela Zou
+	   for (int i = 1; i < secondList.size(); i += 3) {
+		   if (!parents.contains(secondList.get(i))) {
+			   parents.add(secondList.get(i));
+		   }
+	   }
+	   for (int i = 2; i < secondList.size(); i += 3) {
+		   if (!parents.contains(secondList.get(i))) {
+			   parents.add(secondList.get(i));
+		   }
+	   }
    }
    
    /*
@@ -131,8 +142,10 @@ public class Person{
    * Strings, the child, mother, and father.The children found 
    * should be added to the children ArrayList field.
    */
-   public void children() {
-      ;
+   public void children() { //Angela Zou
+	   for (int i = 1; i < secondList.size(); i += 3) {
+		   children.add(secondList.get(i));
+	   }
    }
    
    /*
