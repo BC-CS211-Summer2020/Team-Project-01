@@ -129,14 +129,14 @@ public class Person{
    * should be added to the parents ArrayList field.
    */
    public void parents() { // Angela Zou
-	   for (int i = 1; i < secondList.size(); i += 3) {
-		   if (!parents.contains(secondList.get(i))) {
-			   parents.add(secondList.get(i));
+	   for (int i = 0; i < secondList.size(); i += 3) {
+		   if(secondList.get(i).equalsIgnoreCase(this.name)) {
+			   parents.add(secondList.get(i+1));
 		   }
 	   }
-	   for (int i = 2; i < secondList.size(); i += 3) {
-		   if (!parents.contains(secondList.get(i))) {
-			   parents.add(secondList.get(i));
+	   for (int i = 0; i < secondList.size(); i += 3) {
+		   if(secondList.get(i).equalsIgnoreCase(this.name)) {
+			   parents.add(secondList.get(i+2));
 		   }
 	   }
    }
@@ -154,7 +154,14 @@ public class Person{
    */
    public void children() { //Angela Zou
 	   for (int i = 1; i < secondList.size(); i += 3) {
-		   children.add(secondList.get(i));
+		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
+			   children.add(secondList.get(i-1));
+		   }
+	   }
+	   for (int i = 2; i < secondList.size(); i += 3) {
+		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
+			   children.add(secondList.get(i-2));
+		   }
 	   }
    }
    
