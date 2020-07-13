@@ -58,7 +58,7 @@ public class Person{
    * The 2 lists are seperated by "END" in the .dat file.
    */
    public void seperateLists() {  //Diane Lansinger
-      ;
+      ; //FileIO
    }
    
    /*
