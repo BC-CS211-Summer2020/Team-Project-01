@@ -188,12 +188,12 @@ public class Person{
       return name;
    }
 
-   public void addFather(Person father)
+   public void setFather(Person father)
    {
       this.father = father;
    }
 
-   public void addMother(Person mother)
+   public void setMother(Person mother)
    {
       this.mother = mother;
    }

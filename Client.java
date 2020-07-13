@@ -36,7 +36,7 @@ public class Client {
          String name = console.nextLine();
          if (name.equals("STOP")) break;
 
-         System.out.println(db.getPerson(name));
+         System.out.println(db.findPerson(name));
       }
 
       console.close();

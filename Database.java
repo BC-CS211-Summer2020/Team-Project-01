@@ -34,47 +34,42 @@ public class Database {
             String motherName = tudorFamily.nextLine();
             String fatherName = tudorFamily.nextLine();
 
-            addParent(childName, motherName, false);
-            addParent(childName, fatherName, true);
+            addMother(childName, motherName);
+            addFather(childName, fatherName);
         }
 
         return true;
     }
 
-    public boolean addPerson(Person person)
+    public boolean addFather(String childName, String fatherName)
     {
-        return people.add(person);
-    }
-
-    public boolean addParent(String childName, String parentName, boolean isFather)
-    {
-        if (isFather)
+        Person child = findPerson(childName);
+        Person parent = findPerson(fatherName);
+        if (child != null && parent != null)
         {
-            Person child = getPerson(childName);
-            Person parent = getPerson(parentName);
-            if (child != null && parent != null)
-            {
-                child.addFather(parent);
-                parent.addChild(child);
-                return true;
-            }
-        }
-        else
-        {
-            Person child = getPerson(childName);
-            Person parent = getPerson(parentName);
-            if (child != null && parent != null)
-            {
-                child.addMother(parent);
-                parent.addChild(child);
-                return true;
-            }
+            child.setFather(parent);
+            parent.addChild(child);
+            return true;
         }
 
         return false;
     }
 
-    public Person getPerson(String name)
+    public boolean addMother(String childName, String motherName)
+    {
+        Person child = findPerson(childName);
+        Person parent = findPerson(motherName);
+        if (child != null && parent != null)
+        {
+            child.setMother(parent);
+            parent.addChild(child);
+            return true;
+        }
+
+        return false;
+    }
+
+    public Person findPerson(String name)
     {
         for(Person p: people)
         {
@@ -85,5 +80,10 @@ public class Database {
         }
 
         return null;
+    }
+
+    private boolean addPerson(Person person)
+    {
+        return people.add(person);
     }
 }
