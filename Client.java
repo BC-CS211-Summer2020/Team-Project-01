@@ -25,13 +25,13 @@ import java.io.File;
 
 // Written by Melina Perraut
 public class Client { 
-	private static boolean foundName; 
-   	 
-	public static void main(String[] args) throws FileNotFoundException { 
-	   // Create scanner objects 
-	   Scanner tudorFamily = new Scanner(new File("tudor.dat")); // Scanner that reads the tudor.dat file with valid names
-	   Scanner console = new Scanner(System.in); // Scanner that reads user's input
-      run(console, tudorFamily);
+   private static boolean foundName; 
+	
+   public static void main(String[] args) throws FileNotFoundException { 
+	// Create scanner objects 
+	Scanner tudorFamily = new Scanner(new File("tudor.dat")); // Scanner that reads the tudor.dat file with valid names
+	Scanner console = new Scanner(System.in); // Scanner that reads user's input
+        run(console, tudorFamily);
    }
    
    public static void run(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
@@ -46,7 +46,7 @@ public class Client {
        else 
        {
          // Search through tudor.dat file for inputted name and create instance of Person object if found
-      	while (tudorFamily.hasNextLine()) { 
+      	 while (tudorFamily.hasNextLine()) { 
       	  String line = tudorFamily.nextLine();
       	  Scanner lineScan = new Scanner(line);
       			   
@@ -56,7 +56,7 @@ public class Client {
       			   foundName = true;
       		   }           
       		}	
-      	}  
+      	 }  
        }
        //Written by Arash Yazdidoost
        if (foundName) {
@@ -66,20 +66,20 @@ public class Client {
        }
        else
        { // If user input is invalid (name entered is not in tudor.dat)
-   			System.out.println("Sorry, that name was not found.");	
+            System.out.println("Sorry, that name was not found.");	
        }
        askSearchAgain(console, tudorFamily);
     }
 
-	 // Checks whether the user wants to search for another name, and runs the program again if yes
-	 public static void askSearchAgain(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
-		 System.out.println();
-		 System.out.println("Would you like to search another name? (Type YES to continue and STOP to quit)");
-		 String answer = console.next();
+	// Checks whether the user wants to search for another name, and runs the program again if yes
+	public static void askSearchAgain(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
+		System.out.println();
+		System.out.println("Would you like to search another name? (Type YES to continue and STOP to quit)");
+		String answer = console.next();
 		 
-		 if (answer.equalsIgnoreCase("YES")) {
-			 //Run the program again 
-          run(console, tudorFamily);
+		if (answer.equalsIgnoreCase("YES")) {
+			//Run the program again 
+          		run(console, tudorFamily);
 		 } else if (answer.equalsIgnoreCase("STOP")) {
 			 System.exit(0);
 		 }
