@@ -57,7 +57,7 @@ public class Person{
    * A Scanner will need to be used to grab the Strings from the .dat file.
    * The 2 lists are seperated by "END" in the .dat file.
    */
-   public void seperateLists() {  //Diane Lansinger
+   public void separateLists() {  //Diane Lansinger
           
       String line;
       boolean isEnd = false;
