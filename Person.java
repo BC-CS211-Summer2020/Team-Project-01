@@ -140,11 +140,7 @@ public class Person{
    * and updates the Person fields
    */
    public void getFamily() {  //Alex Filbert
-      try{
-         seperateLists();
-      } catch(Exception e) {
-         e.printStackTrace();   
-      }
+      seperateLists();
       createListOfFamilies();
       parents();
       children();
