@@ -28,25 +28,12 @@ public class Client {
    private static boolean foundName; 
 	
    public static void main(String[] args) throws FileNotFoundException { 
-      Database db = new Database();
-      db.loadDatFile("tudor.dat");
-      Scanner console = new Scanner(System.in); // Scanner that reads user's input
-      while (true) {
-         String name = console.nextLine();
-         if (name.equals("STOP")) break;
 
-         System.out.println(db.findPerson(name));
-      }
-
-      console.close();
-
-
-      /*
 	// Create scanner objects 
 	Scanner tudorFamily = new Scanner(new File("tudor.dat")); // Scanner that reads the tudor.dat file with valid names
 	Scanner console = new Scanner(System.in); // Scanner that reads user's input
         run(console, tudorFamily);
-        */
+ 
    }
    
    public static void run(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
