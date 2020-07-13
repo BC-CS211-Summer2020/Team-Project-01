@@ -205,6 +205,34 @@ public class Person{
 	   for (String child : getChildren()) { //change to children
 	   System.out.println("\t" + child);
 	  */
-      return "Name: " + name + " Mother: " + getMother().getName() + " Father: " + getFather().getName();
+     getFamily();
+      ArrayList<String> family = null;
+      for(int i = 0; i < familyList.size(); ++i)
+      {
+         if (name.equals(familyList.get(i).get(0)))
+         {
+            family = familyList.get(i);
+         }
+      }
+      
+      String output = "Person's name? " + name + "\n";
+      if (family != null)
+      {
+         output += "Maternal line: \n\t";
+         output += name + "\n\t\t";
+         output += family.get(1) + "\n";
+         
+         output += "Paternal line: \n\t";
+         output += name + "\n\t\t";
+         output += family.get(2) + "\n";
+         
+         output += "Children: \n";
+         for (String child : children)
+         {
+            output += "\t" + child + "\n";
+         }
+      }
+      
+      return output;
    }
 }
