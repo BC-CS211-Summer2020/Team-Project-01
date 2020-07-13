@@ -71,17 +71,17 @@ public class Client {
        askSearchAgain(console, tudorFamily);
     }
 
-	// Checks whether the user wants to search for another name, and runs the program again if yes
-	public static void askSearchAgain(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
-		System.out.println();
-		System.out.println("Would you like to search another name? (Type YES to continue and STOP to quit)");
-		String answer = console.next();
+   // Checks whether the user wants to search for another name, and runs the program again if yes
+   public static void askSearchAgain(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
+	System.out.println();
+	System.out.println("Would you like to search another name? (Type YES to continue and STOP to quit)");
+	String answer = console.next();
 		 
-		if (answer.equalsIgnoreCase("YES")) {
-			//Run the program again 
-          		run(console, tudorFamily);
-		 } else if (answer.equalsIgnoreCase("STOP")) {
-			 System.exit(0);
-		 }
-	 }
+	if (answer.equalsIgnoreCase("YES")) {
+		//Run the program again 
+          	run(console, tudorFamily);
+	} else if (answer.equalsIgnoreCase("STOP")) {
+		 System.exit(0);
+	}
+  }
 }
