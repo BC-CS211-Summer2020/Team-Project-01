@@ -36,6 +36,11 @@ public class Person{
    private ArrayList<ArrayList<String>> familyList;
    private ArrayList<String> parents;
    private ArrayList<String> children;
+
+   // update by Zhexiu, to distingush father and mother
+   private Person father;
+   private Person mother;
+   private ArrayList<Person> childrenList;
    
    // Constructor
    public Person(String name) {
@@ -45,6 +50,8 @@ public class Person{
       familyList = new ArrayList<>();
       parents = new ArrayList<>();
       children = new ArrayList<>();
+
+      childrenList = new ArrayList<Person>();
    }
    
    /*
@@ -171,7 +178,43 @@ public class Person{
    */
    public String toString() {
       // Filler code to allow program to compile
-      String childrenString = "family line";
-      return childrenString;
+      // String  = "family line";
+      // TODO: needs update to comply with output format (Maternal line/Parental line)
+      return "Name: " + name + " Mother: " + getMother().getName() + " Father: " + getFather().getName();
+   }
+
+   public String getName()
+   {
+      return name;
+   }
+
+   public void addFather(Person father)
+   {
+      this.father = father;
+   }
+
+   public void addMother(Person mother)
+   {
+      this.mother = mother;
+   }
+
+   public void addChild(Person child)
+   {
+      this.childrenList.add(child);
+   }
+
+   public Person getFather()
+   {
+      return father;
+   }
+
+   public Person getMother()
+   {
+      return mother;
+   }
+
+   public ArrayList<Person> getChildren()
+   {
+      return childrenList;
    }
 }
