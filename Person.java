@@ -81,6 +81,9 @@ public class Person{
                firstList.add(line);
             }
          }
+         
+         isEnd = false;
+         
          while (file.hasNextLine() && !isEnd){
             line = file.nextLine();
             if (line.equals("END")){
