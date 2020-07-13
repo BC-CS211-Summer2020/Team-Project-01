@@ -1,27 +1,4 @@
-/*CSS 211 Summer 2020
- * Team #2
- * Alex Filbert
- * Diane Lansinger (lead)
- * Melina Perraut
- * Zhexiu Tan
- * Arash Yazdidoost
- * Angie Zou
- * 
- * Team Project #1
- * Building Java Programs (Reges & Step, 5th edition)
- * Ch. 10, p. 721, Programming Exercise #3
- * Family Database Program
- * 
- * Person Class represents a person and stores references
- * to this person's mother, father and any children this
- * person has. Person Class reads a file of names to
- * initialize the name and parent/child relationships of 
- * each Person object. An overall list of 'Persons' is
- * stored as an ArrayList. Person Class is called by
- * Client class.
- *
- * Final Submission:  07-14-20
-*/
+package teamProject01;
 
 import java.util.*;
 import java.io.*;
@@ -30,21 +7,35 @@ public class Person{
 
    
    //Fields
-   private String name;
-   private ArrayList<String> firstList;
-   private ArrayList<String> secondList;
-   private ArrayList<ArrayList<String>> familyList;
-   private ArrayList<String> parents;
-   private ArrayList<String> children;
+   
+	private String name;
+	private ArrayList<String> firstList = new ArrayList<>();
+	private ArrayList<String> secondList = new ArrayList<>();
+	/*
+	private ArrayList<ArrayList<String>> familyList = new ArrayList<>();
+	private ArrayList<String> parents = new ArrayList<>();
+	private ArrayList<String> children = new ArrayList<>();
+	*/
    
    // Constructor
    public Person(String name) {
-      this.name = name;
-      firstList = new ArrayList<>();
-      secondList = new ArrayList<>();
-      familyList = new ArrayList<>();
-      parents = new ArrayList<>();
-      children = new ArrayList<>();
+	   this.name = name.toLowerCase();
+	   separateLists();
+	   /*
+	   createListOfFamilies();
+	   parents();
+	   children();
+	   */
+   }
+   
+   public String getName() {
+	   String result = "none";
+	   for (int i = 0; i < secondList.size(); i++) {
+		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
+			   result = secondList.get(i);
+		   }
+	   }
+	   return result;
    }
    
    /*
@@ -60,24 +51,25 @@ public class Person{
    public void separateLists() {  //Diane Lansinger
           
       String line;
-      boolean isEnd = false;
+      boolean end1 = false;
+      boolean end2 = false;
       try{
          Scanner file = new Scanner(new File("tudor.dat"));
          //add each name before first "END" to firstList
          //add each name before second "END" to secondList
-         while (file.hasNextLine() && !isEnd){
+         while (file.hasNextLine() && !end1){
             line = file.nextLine();
             if (line.equals("END")){
-               isEnd = true;
+               end1 = true;
             }
             else{
-               firstList.add(line);
+               firstList.add(line.toLowerCase());
             }
          }
-         while (file.hasNextLine() && !isEnd){
+         while (file.hasNextLine() && !end2){
             line = file.nextLine();
             if (line.equals("END")){
-               isEnd = true;
+               end2 = true;
             }
             else{
                secondList.add(line);
@@ -101,12 +93,13 @@ public class Person{
    * father, repectively. You can only add ArrayList<String> objects to 
    * the familyList field. Each of which should have only three elements.
    */
+   /*
    public void createListOfFamilies() { //Angela Zou
 	   for (int i = 0; i < secondList.size(); i += 3) {
 		   familyList.add(new ArrayList<String>(Arrays.asList(secondList.get(i), secondList.get(i+1), secondList.get(i+2))));
 	   }
-   } 
-   
+   }
+   */
    /*
    * Finds the parents 
    */
@@ -118,6 +111,7 @@ public class Person{
    * three Strings, the child, mother, and father. The parents found 
    * should be added to the parents ArrayList field.
    */
+   /*
    public void parents() { // Angela Zou
 	   for (int i = 1; i < secondList.size(); i += 3) {
 		   if (!parents.contains(secondList.get(i))) {
@@ -129,6 +123,27 @@ public class Person{
 			   parents.add(secondList.get(i));
 		   }
 	   }
+   }
+   */
+   
+   public String getMother() { //Angela Zou
+	   String mother = "unknown";
+	   for (int i = 0; i < secondList.size(); i += 3) {
+		   if(secondList.get(i).equalsIgnoreCase(this.name)) {
+			   mother = secondList.get(i+1);
+		   }
+	   }
+	   return mother;
+   }
+   
+   public String getFather() { //Angela Zou
+	   String father = "unknown";
+	   for (int i = 0; i < secondList.size(); i += 3) {
+		   if(secondList.get(i).equalsIgnoreCase(this.name)) {
+			   father =  secondList.get(i+2);
+		   }
+	   }
+	   return father;
    }
    
    /*
@@ -142,21 +157,70 @@ public class Person{
    * Strings, the child, mother, and father.The children found 
    * should be added to the children ArrayList field.
    */
+   /*
    public void children() { //Angela Zou
 	   for (int i = 1; i < secondList.size(); i += 3) {
 		   children.add(secondList.get(i));
 	   }
+   }
+   */
+   
+   public List<String> getChildren() { //Angela Zou
+	   List<String> imediateChildren = new ArrayList<>();
+	   for (int i = 1; i < secondList.size(); i += 3) {
+		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
+			   imediateChildren.add(secondList.get(i-1));
+		   }
+	   }
+	   for (int i = 2; i < secondList.size(); i += 3) {
+		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
+			   imediateChildren.add(secondList.get(i-2));
+		   }
+	   }
+	   return imediateChildren;
    }
    
    /*
    * Calls the methods that parses the data file 
    * and updates the Person fields
    */
+   /*
    public void getFamily() {  //Alex Filbert
-      separateLists();
+      try{
+         separateLists();
+      } catch(Exception e) {
+         e.printStackTrace();   
+      }
       createListOfFamilies();
       parents();
       children();
+   }
+   */
+   
+   public void printFamily() { //Angela Zou
+	   //print maternal line
+	   System.out.println("Maternal line:");
+	   System.out.println("\t" + getName());
+	   System.out.println("\t\t" + getMother());
+	   
+	   //print paternal line
+	   System.out.println("Paternal line:");
+	   System.out.println("\t" + getName());
+	   System.out.println("\t\t" + getFather());
+	   
+	   //print children
+	   System.out.println("Children:");
+	   for (String child : getChildren()) {
+		   System.out.println("\t" + child);
+	   }
+   }
+   
+   public void evaluateName() {
+	   if (firstList.contains(this.name)) {
+		   printFamily();
+	   } else if (!name.equals("stop")){
+		   System.out.println("not found");
+	   }
    }
    
    /*
@@ -169,9 +233,11 @@ public class Person{
    * is instantiated in the Client class. The String should look 
    * exactly like the example in the project exercise in the book.
    */
+   /*
    public String toString() {
       // Filler code to allow program to compile
-      String childrenString = "family line";
+      String childrenString = "";
       return childrenString;
    }
+   */
 }
