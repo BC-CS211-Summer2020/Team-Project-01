@@ -36,11 +36,6 @@ public class Person{
    private ArrayList<ArrayList<String>> familyList;
    private ArrayList<String> parents;
    private ArrayList<String> children;
-
-   // update by Zhexiu, to distingush father and mother
-   private Person father;
-   private Person mother;
-   private ArrayList<Person> childrenList;
    
    // Constructor
    public Person(String name) {
@@ -50,8 +45,6 @@ public class Person{
       familyList = new ArrayList<>();
       parents = new ArrayList<>();
       children = new ArrayList<>();
-
-      childrenList = new ArrayList<Person>();
    }
    
    /*
@@ -140,6 +133,10 @@ public class Person{
 			   parents.add(secondList.get(i+2));
 		   }
 	   }
+	   if(parents.isEmpty()) {
+		   parents.add("unknown");
+		   parents.add("unknown");
+	   }
    }
    
    /*
@@ -164,6 +161,9 @@ public class Person{
 			   children.add(secondList.get(i-2));
 		   }
 	   }
+	   if(children.isEmpty()) {
+		   children.add("No children");
+	   }
    }
    
    /*
@@ -187,56 +187,23 @@ public class Person{
    * is instantiated in the Client class. The String should look 
    * exactly like the example in the project exercise in the book.
    */
-   public String toString() {
-      // Filler code to allow program to compile
-      // String  = "family line";
-      // TODO: needs update to comply with output format (Maternal line/Parental line)
-	/* //print maternal line
-	   System.out.println("Maternal line:");
-	   System.out.println("\t" + getName());
-	   System.out.println("\t\t" + getMother()); //change to parents.get(0)
+   public String toString() { // Zhexiu Tan
 	   
-	   //print paternal line
-	   System.out.println("Paternal line:");
-	   System.out.println("\t" + getName());
-	   System.out.println("\t\t" + getFather()); //change to parents.get(1)
-	   
-	   //print children
-	   System.out.println("Children:");
-	   for (String child : getChildren()) { //change to children
-	   System.out.println("\t" + child);
-	  */
-	   
-     // Zhexiu Tan
-     getFamily();
-      ArrayList<String> family = null;
-      for(int i = 0; i < familyList.size(); ++i)
-      {
-         if (name.equals(familyList.get(i).get(0)))
-         {
-            family = familyList.get(i);
-         }
-      }
-      
-      // Zhexiu Tan
       String output = "Person's name? " + name + "\n";
-      if (family != null)
+	   
+      output += "Maternal line: \n\t";
+      output += name + "\n\t\t";
+      output += parents.get(0) + "\n";
+         
+      output += "Paternal line: \n\t";
+      output += name + "\n\t\t";
+      output += parents.get(1) + "\n";
+         
+      output += "Children: \n";
+      for (String child : children)
       {
-         output += "Maternal line: \n\t";
-         output += name + "\n\t\t";
-         output += family.get(1) + "\n";
-         
-         output += "Paternal line: \n\t";
-         output += name + "\n\t\t";
-         output += family.get(2) + "\n";
-         
-         output += "Children: \n";
-         for (String child : children)
-         {
-            output += "\t" + child + "\n";
-         }
+         output += "\t" + child + "\n";
       }
-      
       return output;
    }
 }
