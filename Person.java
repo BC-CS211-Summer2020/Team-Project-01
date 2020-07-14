@@ -26,17 +26,16 @@
 import java.util.*;
 import java.io.*;
 
-public class Person{
+public class Person {
 
-   
-   //Fields
+   // Fields
    private String name;
    private ArrayList<String> firstList;
    private ArrayList<String> secondList;
    private ArrayList<ArrayList<String>> familyList;
    private ArrayList<String> parents;
    private ArrayList<String> children;
-   
+
    // Constructor
    public Person(String name) {
       this.name = name;
@@ -46,171 +45,162 @@ public class Person{
       parents = new ArrayList<>();
       children = new ArrayList<>();
    }
-	
-//returns correct capitalization
-   public String getName() { //Angela Zou
-	   String name = "unknown";
-	   for (int i = 0; i < secondList.size(); i++) {
-		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
-			   name = secondList.get(i);
-		   }
-	   }
-	   return name;
+
+   // returns correct capitalization
+   public String getName() { // Angela Zou
+      String name = "unknown";
+      for (int i = 0; i < secondList.size(); i++) {
+         if (secondList.get(i).equalsIgnoreCase(this.name)) {
+            name = secondList.get(i);
+         }
+      }
+      return name;
    }
-   
+
    /*
-   * Finds the first and second list values and append them to their 
-   * respective ArrayList fields
-   */
+    * Finds the first and second list values and append them to their respective
+    * ArrayList fields
+    */
    /*
-   * Detailed explanation:
-   * This method adds all the String elements into firstList and secondList.
-   * A Scanner will need to be used to grab the Strings from the .dat file.
-   * The 2 lists are seperated by "END" in the .dat file.
-   */
-   public void separateLists() {  //Diane Lansinger
-          
+    * Detailed explanation: This method adds all the String elements into firstList
+    * and secondList. A Scanner will need to be used to grab the Strings from the
+    * .dat file. The 2 lists are seperated by "END" in the .dat file.
+    */
+   public void separateLists() { // Diane Lansinger
+
       String line;
       boolean isEnd = false;
-      try{
+      try {
          Scanner file = new Scanner(new File("tudor.dat"));
-         //add each name before first "END" to firstList
-         //add each name before second "END" to secondList
-         while (file.hasNextLine() && !isEnd){
+         // add each name before first "END" to firstList
+         // add each name before second "END" to secondList
+         while (file.hasNextLine() && !isEnd) {
             line = file.nextLine();
-            if (line.equals("END")){
+            if (line.equals("END")) {
                isEnd = true;
-            }
-            else{
+            } else {
                firstList.add(line.toLowerCase());
             }
          }
-         
+
          isEnd = false;
-         
-         while (file.hasNextLine() && !isEnd){
+
+         while (file.hasNextLine() && !isEnd) {
             line = file.nextLine();
-            if (line.equals("END")){
+            if (line.equals("END")) {
                isEnd = true;
-            }
-            else{
+            } else {
                secondList.add(line);
             }
          }
-	 file.close();     
-      }
-      catch (FileNotFoundException e){
+         file.close();
+      } catch (FileNotFoundException e) {
          System.out.println("File tudor.dat not found.");
          System.exit(0);
       }
    }
-   
+
    /*
-   * Splits up the second list into lists of three values each and then 
-   * append those to another ArrayList
-   */
+    * Splits up the second list into lists of three values each and then append
+    * those to another ArrayList
+    */
    /*
-   * Detailed explanation:
-   * This method adds all the String elements into the familyList field.
-   * In secondList, every three values represents the child, mother, and 
-   * father, repectively. You can only add ArrayList<String> objects to 
-   * the familyList field. Each of which should have only three elements.
-   */
-   public void createListOfFamilies() { //Angela Zou
-	   for (int i = 0; i < secondList.size(); i += 3) {
-		   familyList.add(new ArrayList<String>(Arrays.asList(secondList.get(i), secondList.get(i+1), secondList.get(i+2))));
-	   }
-   } 
-   
+    * Detailed explanation: This method adds all the String elements into the
+    * familyList field. In secondList, every three values represents the child,
+    * mother, and father, repectively. You can only add ArrayList<String> objects
+    * to the familyList field. Each of which should have only three elements.
+    */
+   public void createListOfFamilies() { // Angela Zou
+      for (int i = 0; i < secondList.size(); i += 3) {
+         familyList.add(
+               new ArrayList<String>(Arrays.asList(secondList.get(i), secondList.get(i + 1), secondList.get(i + 2))));
+      }
+   }
+
    /*
-   * Finds the parents 
-   */
+    * Finds the parents
+    */
    /*
-   * Detailed explanation:
-   * This method should check every ArrayList<String> object in the 
-   * familyList field and find the parents of the Person object using
-   * the Person name field. Every familyList field will have exactly 
-   * three Strings, the child, mother, and father. The parents found 
-   * should be added to the parents ArrayList field.
-   */
+    * Detailed explanation: This method should check every ArrayList<String> object
+    * in the familyList field and find the parents of the Person object using the
+    * Person name field. Every familyList field will have exactly three Strings,
+    * the child, mother, and father. The parents found should be added to the
+    * parents ArrayList field.
+    */
    public void parents() { // Angela Zou
-	   for (int i = 0; i < secondList.size(); i += 3) {
-		   if(secondList.get(i).equalsIgnoreCase(this.name)) {
-			   parents.add(secondList.get(i+1));
-		   }
-	   }
-	   for (int i = 0; i < secondList.size(); i += 3) {
-		   if(secondList.get(i).equalsIgnoreCase(this.name)) {
-			   parents.add(secondList.get(i+2));
-		   }
-	   }
-	   if(parents.isEmpty()) {
-		   parents.add("unknown");
-		   parents.add("unknown");
-	   }
+      for (int i = 0; i < secondList.size(); i += 3) {
+         if (secondList.get(i).equalsIgnoreCase(this.name)) {
+            parents.add(secondList.get(i + 1));
+         }
+      }
+      for (int i = 0; i < secondList.size(); i += 3) {
+         if (secondList.get(i).equalsIgnoreCase(this.name)) {
+            parents.add(secondList.get(i + 2));
+         }
+      }
+      if (parents.isEmpty()) {
+         parents.add("unknown");
+         parents.add("unknown");
+      }
    }
-   
+
    /*
-   * Finds the children
-   */   
+    * Finds the children
+    */
    /*
-   * Detailed explanation:
-   * This method should check every ArrayList<String> object in the 
-   * familyList field and find the children of the Person object using
-   * the name field. Every familyList field will have exactly three 
-   * Strings, the child, mother, and father.The children found 
-   * should be added to the children ArrayList field.
-   */
-   public void children() { //Angela Zou
-	   for (int i = 1; i < secondList.size(); i += 3) {
-		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
-			   children.add(secondList.get(i-1));
-		   }
-	   }
-	   for (int i = 2; i < secondList.size(); i += 3) {
-		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
-			   children.add(secondList.get(i-2));
-		   }
-	   }
-	   if(children.isEmpty()) {
-		   children.add("No children");
-	   }
+    * Detailed explanation: This method should check every ArrayList<String> object
+    * in the familyList field and find the children of the Person object using the
+    * name field. Every familyList field will have exactly three Strings, the
+    * child, mother, and father.The children found should be added to the children
+    * ArrayList field.
+    */
+   public void children() { // Angela Zou
+      for (int i = 1; i < secondList.size(); i += 3) {
+         if (secondList.get(i).equalsIgnoreCase(this.name)) {
+            children.add(secondList.get(i - 1));
+         }
+      }
+      for (int i = 2; i < secondList.size(); i += 3) {
+         if (secondList.get(i).equalsIgnoreCase(this.name)) {
+            children.add(secondList.get(i - 2));
+         }
+      }
+      if (children.isEmpty()) {
+         children.add("No children");
+      }
    }
-   
+
    /*
-   * Calls the methods that parses the data file 
-   * and updates the Person fields
-   */
-   public void getFamily() {  //Alex Filbert
+    * Calls the methods that parses the data file and updates the Person fields
+    */
+   public void getFamily() { // Alex Filbert
       separateLists();
       createListOfFamilies();
       parents();
       children();
    }
-   
+
    /*
-   * Prints out the family of the Person 
-   */
+    * Prints out the family of the Person
+    */
    /*
-   * Detailed explanation: 
-   * This method should return a String that shows the Person 
-   * object's family. This method will be envoked after the Person 
-   * is instantiated in the Client class. The String should look 
-   * exactly like the example in the project exercise in the book.
-   */
+    * Detailed explanation: This method should return a String that shows the
+    * Person object's family. This method will be envoked after the Person is
+    * instantiated in the Client class. The String should look exactly like the
+    * example in the project exercise in the book.
+    */
    public String toString() { // Zhexiu Tan
-	   
+
       String output = "Maternal line: \n\t";
       output += getName() + "\n\t\t";
       output += parents.get(0) + "\n";
-         
+
       output += "Paternal line: \n\t";
       output += getName() + "\n\t\t";
       output += parents.get(1) + "\n";
-         
+
       output += "Children: \n";
-      for (String child : children)
-      {
+      for (String child : children) {
          output += "\t" + child + "\n";
       }
       return output;
