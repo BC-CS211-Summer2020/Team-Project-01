@@ -78,7 +78,7 @@ public class Person{
                isEnd = true;
             }
             else{
-               firstList.add(line.toLowerCase);
+               firstList.add(line.toLowerCase());
             }
          }
          
@@ -90,7 +90,7 @@ public class Person{
                isEnd = true;
             }
             else{
-               secondList.add(line.toLowerCase);
+               secondList.add(line.toLowerCase());
             }
          }
 	 file.close();     
