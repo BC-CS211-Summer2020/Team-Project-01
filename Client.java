@@ -46,19 +46,20 @@ public class Client {
          System.exit(0);
       } 
       else {
-      // Search through tudor.dat file for inputted name and create instance of Person object if found
-      while (tudorFamily.hasNextLine()) { 
-      	 String line = tudorFamily.nextLine();
-      	 Scanner lineScan = new Scanner(line);
-      			   
-      	 while (lineScan.hasNext() && !(line.equals("END"))) { // For all person names (stopping at first "END" - excludes family names & duplicates)
-            String nameInList = lineScan.nextLine();
-      	    if (nameInList.equalsIgnoreCase(name)) {
-      	       foundName = true;
-      	    }           
-      	 }	
-      }  
-   }
+	      tudorFamily = new Scanner(new File("tudor.dat")); // Re-initialize Scanner for tudor.dat
+	      // Search through tudor.dat file for inputted name and create instance of Person object if found
+	      while (tudorFamily.hasNextLine()) { 
+		 String line = tudorFamily.nextLine();
+		 Scanner lineScan = new Scanner(line);
+
+		 while (lineScan.hasNext() && !(line.equals("END"))) { // For all person names (stopping at first "END" - excludes family names & duplicates)
+		    String nameInList = lineScan.nextLine();
+		    if (nameInList.equalsIgnoreCase(name)) {
+		       foundName = true;
+		    }           
+		 }	
+	      }  
+   	}
       //Written by Arash Yazdidoost
       if (foundName) {
          Person result = new Person(name);
