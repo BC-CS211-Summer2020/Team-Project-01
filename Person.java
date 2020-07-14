@@ -189,7 +189,7 @@ public class Person{
    */
    public String toString() { // Zhexiu Tan
 	   
-      output += "Maternal line: \n\t";
+      String output = "Maternal line: \n\t";
       output += name + "\n\t\t";
       output += parents.get(0) + "\n";
          
