@@ -83,7 +83,7 @@ public class Person{
                isEnd = true;
             }
             else{
-               secondList.add(line.toLowerCase());
+               secondList.add(line);
             }
          }
 	 file.close();     
