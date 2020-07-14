@@ -66,7 +66,7 @@ public class Client {
          System.out.println(result.toString());       	
       }
       else { // If user input is invalid (name entered is not in tudor.dat)
-         System.out.println("Sorry, that name was noHENt found.");	
+         System.out.println("Sorry, that name was not found.");	
       }
       askSearchAgain(console, tudorFamily);
    }
