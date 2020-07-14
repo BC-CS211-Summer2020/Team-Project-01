@@ -78,7 +78,7 @@ public class Person{
                isEnd = true;
             }
             else{
-               firstList.add(line);
+               firstList.add(line.toLowerCase());
             }
          }
          
@@ -90,14 +90,16 @@ public class Person{
                isEnd = true;
             }
             else{
-               secondList.add(line);
+               secondList.add(line.toLowerCase());
             }
-         }          
+         }
+         
+         file.close();
       }
       catch (FileNotFoundException e){
          System.out.println("File tudor.dat not found.");
          System.exit(0);
-      }
+      }     
    }
    
    /*
