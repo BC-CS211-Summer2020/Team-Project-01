@@ -46,6 +46,17 @@ public class Person{
       parents = new ArrayList<>();
       children = new ArrayList<>();
    }
+	
+//returns correct capitalization
+   public String getName() { //Angela Zou
+	   String name = "unknown";
+	   for (int i = 0; i < secondList.size(); i++) {
+		   if (secondList.get(i).equalsIgnoreCase(this.name)) {
+			   name = secondList.get(i);
+		   }
+	   }
+	   return name;
+   }
    
    /*
    * Finds the first and second list values and append them to their 
@@ -190,11 +201,11 @@ public class Person{
    public String toString() { // Zhexiu Tan
 	   
       String output = "Maternal line: \n\t";
-      output += name + "\n\t\t";
+      output += getName() + "\n\t\t";
       output += parents.get(0) + "\n";
          
       output += "Paternal line: \n\t";
-      output += name + "\n\t\t";
+      output += getName() + "\n\t\t";
       output += parents.get(1) + "\n";
          
       output += "Children: \n";
