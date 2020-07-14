@@ -75,7 +75,7 @@ public class Client {
    public static void askSearchAgain(Scanner console, Scanner tudorFamily) throws FileNotFoundException { 
 	System.out.println();
 	System.out.println("Would you like to search another name? (Type YES to continue and STOP to quit)");
-	String answer = console.next();
+	String answer = console.nextLine();
 		 
 	if (answer.equalsIgnoreCase("YES")) {
           	run(console, tudorFamily); //Run the program again 
