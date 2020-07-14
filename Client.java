@@ -80,6 +80,7 @@ public class Client {
       System.out.println();
       System.out.println("Would you like to search another name? (Type YES to continue and STOP to quit)");
       String answer = console.nextLine();
+	System.out.println();
 		 
       if (answer.equalsIgnoreCase("YES")) {
          run(console, tudorFamily); //Run the program again 
