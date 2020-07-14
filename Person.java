@@ -1,7 +1,7 @@
 /*CSS 211 Summer 2020
  * Team #2
  * Alex Filbert
- * Diane Lansinger (lead)
+ * Diane Lansinger (project lead)
  * Melina Perraut
  * Zhexiu Tan
  * Arash Yazdidoost
@@ -26,9 +26,9 @@
 import java.util.*;
 import java.io.*;
 
-public class Person {
+public class Person {  // skeleton code and explanations for methods -> Alex Filbert
 
-   // Fields
+   // Fields -> Alex Filbert
    private String name;
    private ArrayList<String> firstList;
    private ArrayList<String> secondList;
@@ -37,7 +37,7 @@ public class Person {
    private ArrayList<String> children;
 
    // Constructor
-   public Person(String name) {
+   public Person(String name) {  // Alex Filbert
       this.name = name;
       firstList = new ArrayList<>();
       secondList = new ArrayList<>();
