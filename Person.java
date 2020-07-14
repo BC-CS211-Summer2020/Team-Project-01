@@ -94,6 +94,7 @@ public class Person {
             }
          }
          file.close();
+
       } catch (FileNotFoundException e) {
          System.out.println("File tudor.dat not found.");
          System.exit(0);
