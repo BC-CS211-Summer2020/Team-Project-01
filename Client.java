@@ -62,6 +62,8 @@ public class Client {
    	}
       //Written by Arash Yazdidoost
       if (foundName) {
+	 name = name.toLowerCase();
+    	 name = name.substring(0, 1).toUpperCase() + name.substring(1);
          Person result = new Person(name);
          result.getFamily();
          System.out.println(result.toString());    
