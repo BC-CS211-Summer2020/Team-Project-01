@@ -64,7 +64,8 @@ public class Client {
       if (foundName) {
          Person result = new Person(name);
          result.getFamily();
-         System.out.println(result.toString());       	
+         System.out.println(result.toString());    
+	 foundName = false;
       }
       else { // If user input is invalid (name entered is not in tudor.dat)
          System.out.println("Sorry, that name was not found.");	
