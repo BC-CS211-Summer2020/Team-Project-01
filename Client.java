@@ -39,7 +39,7 @@ public class Client {
    public static void run(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
       // Written by Melina Perraut
       // Ask for user input
-      System.out.println("Enter person's name (type STOP to quit): ");
+      System.out.println("Person's name? (Type STOP to quit): ");
       String name = console.nextLine();
       	  
       if (name.equalsIgnoreCase("STOP")) {
