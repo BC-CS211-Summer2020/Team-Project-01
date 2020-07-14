@@ -205,6 +205,8 @@ public class Person{
 	   for (String child : getChildren()) { //change to children
 	   System.out.println("\t" + child);
 	  */
+	   
+     // Zhexiu Tan
      getFamily();
       ArrayList<String> family = null;
       for(int i = 0; i < familyList.size(); ++i)
@@ -215,6 +217,7 @@ public class Person{
          }
       }
       
+      // Zhexiu Tan
       String output = "Person's name? " + name + "\n";
       if (family != null)
       {
