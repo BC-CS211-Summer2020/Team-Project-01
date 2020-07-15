@@ -89,7 +89,7 @@ public class Client {
 
       if (answer.equalsIgnoreCase("YES")) {
          run(console, tudorFamily); // Run the program again
-      } else if (answer.equalsIgnoreCase("STOP")) {
+      } else {
          System.exit(0);
       }
    }
