@@ -32,7 +32,6 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
    private String name;
    private ArrayList<String> firstList;
    private ArrayList<String> secondList;
-   private ArrayList<ArrayList<String>> familyList;
    private ArrayList<String> parents;
    private ArrayList<String> children;
 
@@ -41,7 +40,6 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
       this.name = name;
       firstList = new ArrayList<>();
       secondList = new ArrayList<>();
-      familyList = new ArrayList<>();
       parents = new ArrayList<>();
       children = new ArrayList<>();
    }
@@ -159,7 +157,6 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
     */
    public void getFamily() { // Alex Filbert
       separateLists();
-      createListOfFamilies();
       parents();
       children();
    }
