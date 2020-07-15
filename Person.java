@@ -20,7 +20,7 @@
  * stored as an ArrayList. Person Class is called by
  * Client class.
  *
- * Final Submission:  07-14-20
+ * Final Submission:  07-15-20
 */
 
 import java.util.*;
@@ -32,7 +32,6 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
    private String name;
    private ArrayList<String> firstList;
    private ArrayList<String> secondList;
-   private ArrayList<ArrayList<String>> familyList;
    private ArrayList<String> parents;
    private ArrayList<String> children;
 
@@ -41,7 +40,6 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
       this.name = name;
       firstList = new ArrayList<>();
       secondList = new ArrayList<>();
-      familyList = new ArrayList<>();
       parents = new ArrayList<>();
       children = new ArrayList<>();
    }
@@ -158,8 +156,7 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
     * Calls the methods that parses the data file and updates the Person fields
     */
    public void getFamily() { // Alex Filbert
-      separateLists();
-      createListOfFamilies();
+      separateLists();   
       parents();
       children();
    }
