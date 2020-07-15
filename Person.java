@@ -156,7 +156,7 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
     * Calls the methods that parses the data file and updates the Person fields
     */
    public void getFamily() { // Alex Filbert
-      separateLists();   
+      separateLists();
       parents();
       children();
    }
