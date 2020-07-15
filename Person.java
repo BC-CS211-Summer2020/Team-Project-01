@@ -1,7 +1,7 @@
 /*CSS 211 Summer 2020
  * Team #2
  * Alex Filbert
- * Diane Lansinger (project lead)
+ * Diane Lansinger (lead)
  * Melina Perraut
  * Zhexiu Tan
  * Arash Yazdidoost
