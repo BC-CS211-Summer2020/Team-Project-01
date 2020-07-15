@@ -102,23 +102,6 @@ public class Person {  // skeleton code and explanations for methods -> Alex Fil
    }
 
    /*
-    * Splits up the second list into lists of three values each and then append
-    * those to another ArrayList
-    */
-   /*
-    * Detailed explanation: This method adds all the String elements into the
-    * familyList field. In secondList, every three values represents the child,
-    * mother, and father, repectively. You can only add ArrayList<String> objects
-    * to the familyList field. Each of which should have only three elements.
-    */
-   public void createListOfFamilies() { // Angela Zou
-      for (int i = 0; i < secondList.size(); i += 3) {
-         familyList.add(
-               new ArrayList<String>(Arrays.asList(secondList.get(i), secondList.get(i + 1), secondList.get(i + 2))));
-      }
-   }
-
-   /*
     * Finds the parents
     */
    /*
