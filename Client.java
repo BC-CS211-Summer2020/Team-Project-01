@@ -83,7 +83,7 @@ public class Client {
    // program again if yes
    public static void askSearchAgain(Scanner console, Scanner tudorFamily) throws FileNotFoundException {
       System.out.println();
-      System.out.println("Would you like to search another name? (Type YES to continue and any other word to quit)");
+      System.out.println("Would you like to search another name? (Type YES to continue, or anything else to quit)");
       String answer = console.nextLine();
       System.out.println();
 
